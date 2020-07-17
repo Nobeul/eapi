@@ -13,13 +13,14 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+// This route is to access authenticated user
+Route::middleware('auth:api')->get('/user',function (Request $request) {
     return $request->user();
 });
-
+// This route is to get all products
 Route::apiResource('/products', 'ProductController');
-
-Route::group(['prefix' => 'products'], function(){
+// These routes have a prefix of 'products'
+Route::group(['prefix' => 'products'], function () {
+    // This route is responsible to get all reviews for a single product
     Route::apiResource('/{product}/reviews', 'ReviewController');
 });
