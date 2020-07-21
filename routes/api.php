@@ -24,3 +24,6 @@ Route::group(['prefix' => 'products'], function () {
     // This route is responsible to get all reviews for a single product
     Route::apiResource('/{product}/reviews', 'ReviewController');
 });
+
+
+
